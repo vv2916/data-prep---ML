@@ -1,0 +1,35 @@
+import pandas as pd
+import numpy as np
+import seaborn as sns
+  from google.colab import files
+uploaded = files.upload()
+  import io
+df = pd.read_csv(io.BytesIO(uploaded['churn3.csv']))
+print(df)
+  df.info
+  df.describe()
+  df.duplicated().sum()
+  df.isnull().sum()
+  df.dropna(inplace=True) 
+print(df.duplicated().sum()) # number of duplicate rows
+df.drop_duplicates(inplace=True) # remove duplicate rows
+  df['customer_id'] = pd.to_numeric(df['customer_id'], errors='coerce') # convert column to numeric and set non-numeric values to NaN
+df.dropna(inplace=True) # drop rows with NaN values
+  # Define the columns to drop
+columns_to_drop = ['customer_id','age' ,'job','urban_rural','marital_status', 'kids', 'credit_card_type','own_house','promo_offers_accepted', 'new_numbers_called']
+
+# Drop the columns from the DataFrame
+df = df.drop(columns=columns_to_drop)
+  #datatypes
+df.dtypes
+
+  #correlation
+df.corr()
+
+  #correlation plot
+plt.figure(figsize=(15,15))
+sns.heatmap(df.corr(),annot=True)
+
+  sns.pairplot(df)
+
+  
