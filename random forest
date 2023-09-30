@@ -1,0 +1,14 @@
+#random forest
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import accuracy_score
+
+# Train the Random Forest classifier
+random_forest = RandomForestClassifier()
+random_forest.fit(X_train, y_train)
+
+# Make predictions using Random Forest
+predictions = random_forest.predict(X_test)
+
+# Evaluate Random Forest accuracy
+accuracy = accuracy_score(y_test, predictions)
+print("Random Forest Accuracy:", accuracy)
