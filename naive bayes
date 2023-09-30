@@ -1,0 +1,14 @@
+from sklearn.naive_bayes import GaussianNB
+from sklearn.metrics import accuracy_score
+# Create an instance of the Gaussian Naive Bayes classifier
+model = GaussianNB()
+
+# Train the model on the training data
+model.fit(X_train, y_train)
+
+# Make predictions on the testing data
+y_pred = model.predict(X_test)
+
+# Evaluate the model performance
+accuracy = accuracy_score(y_test, y_pred)
+print("Model accuracy:", accuracy)
