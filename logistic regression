@@ -1,0 +1,12 @@
+from sklearn.linear_model import LogisticRegression
+
+# Apply Logistic Regression with adjusted parameters
+logistic_regression = LogisticRegression(solver='saga', max_iter=10000)
+logistic_regression.fit(X_train, y_train)
+
+# Make predictions using Logistic Regression
+logistic_regression_predictions = logistic_regression.predict(X_test)
+
+# Evaluate Logistic Regression accuracy
+logistic_regression_accuracy = accuracy_score(y_test, logistic_regression_predictions)
+print("Logistic Regression Accuracy:", logistic_regression_accuracy)
