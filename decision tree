@@ -1,0 +1,12 @@
+from sklearn.tree import DecisionTreeClassifier
+from sklearn import tree
+import matplotlib.pyplot as plt
+
+# Train the Decision Tree classifier
+decision_tree = DecisionTreeClassifier()
+decision_tree.fit(X_train, y_train)
+
+# Generate the tree diagram
+plt.figure(figsize=(12, 8))
+tree.plot_tree(decision_tree, feature_names=X.columns, class_names=True, filled=True)
+plt.show()
